@@ -4,7 +4,7 @@
 	class LoginAdmin
 	{
 	
-		public function loginCheck($username, $password)
+		public function loginCheck($email, $password)
 		{
 			$checkResult ="";
 
@@ -16,10 +16,9 @@
 			}
 			else
 			{
-      echo $username;
-				$queryUserCheck = "SELECT id, username, password FROM members WHERE username = ? LIMIT 1";
+      	$queryUserCheck = "SELECT id, username, password FROM members WHERE email = ? LIMIT 1";
 				$stmt = $mysqli->prepare($queryUserCheck);
-				$stmt->bind_param('s', $username);
+				$stmt->bind_param('s', $email);
 				$stmt->execute();
 				$stmt->store_result();
 				$stmt->bind_result($db_userId, $db_username, $db_password);
