@@ -24,6 +24,7 @@ function send()
     var sMsg = validate();
     if (sMsg.length == 0)
     {
+        document.getElementById("hPassword").value = hex_sha512(document.getElementById("txtPassword").value);
         document.getElementById("frmLogin").submit();
     }
     else
