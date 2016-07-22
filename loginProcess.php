@@ -6,7 +6,7 @@
   if($_SERVER['REQUEST_METHOD'] == "POST")
 	{
     $messageRequest = json_decode(file_get_contents('php://input'), true);
-    $messageResponse = $loginAdmin->loginCheck($messageRequest['username'], $messageRequest['password']);
+    $messageResponse = $loginAdmin->loginCheck($messageRequest['txtUsername'], $messageRequest['txtPassword']);
   }
 	else
 	{
