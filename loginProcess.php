@@ -3,16 +3,8 @@
 
 	$loginAdmin = new LoginAdmin();
 
-  if($_SERVER['REQUEST_METHOD'] == "POST")
-	{
-    $messageRequest = json_decode(file_get_contents('php://input'), true);
-    $messageResponse = $loginAdmin->loginCheck($messageRequest['txtUsername'], $messageRequest['txtPassword']);
-  }
-	else
-	{
-    $messageResponse = array("status" => -1, "msg" => "Request method not accepted only POST messages are accepted!");
-  }
-
+  $messageResponse = $loginAdmin->loginCheck($_POST['txtUsername'], $_POST['txtPassword']);
+  
   /* Output header */
   header('Content-type: application/json');
   echo json_encode($messageResponse);
