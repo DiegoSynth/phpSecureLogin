@@ -26,9 +26,7 @@
 
 				if ($stmt->num_rows == 1)
 				{
-        echo $password . " = " . $db_password;
-        
-					if($password == $db_password)
+        	if($password == $db_password)
 					{
 						$checkResult = array("status" => 0, "msg" => "User authenticated", "userId"=> $db_userid );
 					}
