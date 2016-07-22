@@ -16,6 +16,7 @@
 			}
 			else
 			{
+      echo $username
 				$queryUserCheck = "SELECT id, username, password FROM members WHERE username = ? LIMIT 1";
 				$stmt = $mysqli->prepare($queryUserCheck);
 				$stmt->bind_param('s', $username);
