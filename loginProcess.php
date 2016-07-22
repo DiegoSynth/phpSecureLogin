@@ -3,7 +3,7 @@
 
 	$loginAdmin = new LoginAdmin();
 
-  $messageResponse = $loginAdmin->loginCheck($_POST['txtEmail'], $_POST['txtPassword']);
+  $messageResponse = $loginAdmin->loginCheck($_POST['txtEmail'], $_POST['hPassword']);
   
   /* Output header */
   header('Content-type: application/json');
