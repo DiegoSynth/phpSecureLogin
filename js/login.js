@@ -1,7 +1,7 @@
 function validate()
 {
     var sMsg="";
-    if (document.getElementById("txtUsername").value.length > 0)
+    if (document.getElementById("txtEmail").value.length > 0)
     {
         if (document.getElementById("txtPassword").value.length > 0)
         {
@@ -14,7 +14,7 @@ function validate()
     }
     else
     {
-        sMsg = "Please complete the field 'username'";
+        sMsg = "Please complete the field 'email'";
     }
     return (sMsg);
 }
