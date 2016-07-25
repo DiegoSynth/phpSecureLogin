@@ -1,3 +1,4 @@
+var loginResult;
 function validate()
 {
     var sMsg="";
@@ -53,12 +54,20 @@ function getFromUrl(sUrl, sParams, callbackfunction)
     };
     xmlhttp.open("POST", sUrl, true);
     xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-    //xmlhttp.setRequestHeader("Content-length", sParams.length);
-    //xmlhttp.setRequestHeader("Connection", "close");
     xmlhttp.send(sParams);
 }
 
 function processLoginResult(xmlhttp)
 {
-    alert(xmlhttp.responseText);
+    loginResult = eval("(" + xmlhttp.responseText + ")");
+    switch(loginResult.status)
+    {
+        case 0:
+            document.getElementById("divUserId").innerHTML = "welcome " + loginResult.userid;
+            document.getElementById("btnSend").disabled = true;
+            break;
+        default:
+            alert(loginResult.msg);
+            break;
+    }
 }
