@@ -29,7 +29,7 @@ function send()
         document.getElementById("hPassword").value = hex_sha512(document.getElementById("txtPassword").value);
         //document.getElementById("frmLogin").submit();
         sUrl = "loginProcess.php";
-        sParams = "txtEmail=" + document.getElementById("txtEmail").value + "hPassword=" + document.getElementById("hPassword").value;
+        sParams = "txtEmail=" + document.getElementById("txtEmail").value + "&hPassword=" + document.getElementById("hPassword").value;
         getFromUrl(sUrl, sParams, processLoginResult);
     }
     else
@@ -41,7 +41,6 @@ function send()
 function getFromUrl(sUrl, sParams, callbackfunction)
 {
     var xmlhttp = new XMLHttpRequest();
-
     xmlhttp.onreadystatechange = function ()
     {
         if (xmlhttp.readyState == 4 && xmlhttp.status == 200)
@@ -54,8 +53,8 @@ function getFromUrl(sUrl, sParams, callbackfunction)
     };
     xmlhttp.open("POST", sUrl, true);
     xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-    xmlhttp.setRequestHeader("Content-length", sParams.length);
-    xmlhttp.setRequestHeader("Connection", "close");
+    //xmlhttp.setRequestHeader("Content-length", sParams.length);
+    //xmlhttp.setRequestHeader("Connection", "close");
     xmlhttp.send(sParams);
 }
 
