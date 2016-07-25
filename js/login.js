@@ -60,10 +60,11 @@ function getFromUrl(sUrl, sParams, callbackfunction)
 function processLoginResult(xmlhttp)
 {
     loginResult = eval("(" + xmlhttp.responseText + ")");
+    alert(xmlhttp.responseText);
     switch(loginResult.status)
     {
         case 0:
-            document.getElementById("divUserId").innerHTML = "welcome " + loginResult.userid;
+            document.getElementById("divUserId").innerHTML = "welcome " + loginResult.userId;
             document.getElementById("btnSend").disabled = true;
             break;
         default:
