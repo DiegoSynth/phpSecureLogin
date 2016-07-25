@@ -41,9 +41,6 @@ function send()
 function getFromUrl(sUrl, sParams, callbackfunction)
 {
     var xmlhttp = new XMLHttpRequest();
-    xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-    xmlhttp.setRequestHeader("Content-length", sParams.length);
-    xmlhttp.setRequestHeader("Connection", "close");
 
     xmlhttp.onreadystatechange = function ()
     {
@@ -56,6 +53,9 @@ function getFromUrl(sUrl, sParams, callbackfunction)
         }
     };
     xmlhttp.open("POST", sUrl, true);
+    xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+    xmlhttp.setRequestHeader("Content-length", sParams.length);
+    xmlhttp.setRequestHeader("Connection", "close");
     xmlhttp.send(sParams);
 }
 
