@@ -49,7 +49,7 @@ function getFromUrl(sUrl, callbackfunction)
             }
         }
     };
-    xmlhttp.open("GET", sUrl, true);
+    xmlhttp.open("POST", sUrl, true);
     xmlhttp.send();
 }
 
