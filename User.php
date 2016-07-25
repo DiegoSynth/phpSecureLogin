@@ -1,0 +1,45 @@
+<?php
+	class User
+	{
+		private $email;
+		private $username;
+		private $userId;
+		private $password;
+		
+		public function setEmail($email)
+		{
+			$this->email = $email;
+		}
+		public function getEmail()
+		{
+			return($email);
+		}
+
+		public function setUsername($username)
+		{
+			$this->username = $username;
+		}
+		public function getUsername()
+		{
+			return($username);
+		}
+
+		public function setUserId($userId)
+		{
+			$this->userId = $userId;
+		}
+		public function getUserId()
+		{
+			return($userId);
+		}
+
+		public function setPassword($password)
+		{
+			$this->password = $password;
+		}
+		public function getPassword()
+		{
+			return($password);
+		}
+	}
+?>

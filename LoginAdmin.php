@@ -1,46 +1,41 @@
 <?php
-    require_once 'config.php';
-
-	class LoginAdmin
+  
+  class LoginAdmin
 	{
 	
-		public function loginCheck($email, $password)
+		public static function loginCheck($user)
 		{
-			$checkResult ="";
-
-			//create Database connection
-			$mysqli = new mysqli(HOST, USER, PASSWORD, DATABASE);
-			if ($mysqli->connect_error)
-			{
-				$checkResult = array("status" => -4, "msg" => "Database connection error!");
+		  $result = "";
+      $dbUser = UserManager::getUser($user);
+      
+      if($dbUser->getUserId == -1)
+      {
+        $result =  array("status" => -4, "msg" => "Database connection error!");
+      }
+      else
+      {
+			  if($dbUser->getUserId == -2)
+        {
+          $result = array("status" => -5, "msg" => "User does not exists!");  
+        }
+        else
+        {
+          if($dbUser->getUserId == -3)
+          {
+            $result = array("status" => -6, "msg" => "Wrong password for the specified user!");
+          }
+          else
+          {
+            $result = array("status" => 0, "msg" => "User authenticated", "userId"=> $user->getUserId());
+          }
+        }
 			}
-			else
-			{
-      	$queryUserCheck = "SELECT id, username, password FROM members WHERE email = ? LIMIT 1";
-				$stmt = $mysqli->prepare($queryUserCheck);
-				$stmt->bind_param('s', $email);
-				$stmt->execute();
-				$stmt->store_result();
-				$stmt->bind_result($db_userId, $db_username, $db_password);
-				$stmt->fetch();
-
-				if ($stmt->num_rows == 1)
-				{
-        	if($password == $db_password)
-					{
-						$checkResult = array("status" => 0, "msg" => "User authenticated", "userId"=> $db_userId );
-					}
-					else
-					{
-						$checkResult = array("status" => -6, "msg" => "Wrong password for the specified user!");
-					}
-				}
-				else
-				{
-					$checkResult = array("status" => -5, "msg" => "User does not exists!");
-				}
-			}
-			return($checkResult);
+			return($result);
 		}
+    
+    public static function storeInSession($user)
+    {
+      $_SESSION["userId"] = $user->getUserId();
+    }
 	}
 ?>
