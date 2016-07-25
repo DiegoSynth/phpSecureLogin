@@ -1,3 +1,4 @@
+var loginResult;
 function validate()
 {
     var sMsg="";
@@ -41,7 +42,6 @@ function send()
 function getFromUrl(sUrl, sParams, callbackfunction)
 {
     var xmlhttp = new XMLHttpRequest();
-
     xmlhttp.onreadystatechange = function ()
     {
         if (xmlhttp.readyState == 4 && xmlhttp.status == 200)
@@ -54,12 +54,20 @@ function getFromUrl(sUrl, sParams, callbackfunction)
     };
     xmlhttp.open("POST", sUrl, true);
     xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-    xmlhttp.setRequestHeader("Content-length", sParams.length);
-    xmlhttp.setRequestHeader("Connection", "close");
     xmlhttp.send(sParams);
 }
 
 function processLoginResult(xmlhttp)
 {
-    alert(xmlhttp.responseText);
+    loginResult = eval("(" + xmlhttp.responseText + ")");
+    switch(loginResult.status)
+    {
+        case 0:
+            document.getElementById("divUserId").innerHTML = "welcome " + loginResult.userId;
+            document.getElementById("btnSend").disabled = true;
+            break;
+        default:
+            alert(loginResult.msg);
+            break;
+    }
 }
