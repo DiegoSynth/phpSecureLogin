@@ -28,7 +28,7 @@
 				{
         	if($password == $db_password)
 					{
-						$checkResult = array("status" => 0, "msg" => "User authenticated", "userId"=> $db_userid );
+						$checkResult = array("status" => 0, "msg" => "User authenticated", "userId"=> $db_userId );
 					}
 					else
 					{
