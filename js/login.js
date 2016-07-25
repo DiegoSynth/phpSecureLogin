@@ -60,7 +60,6 @@ function getFromUrl(sUrl, sParams, callbackfunction)
 function processLoginResult(xmlhttp)
 {
     loginResult = eval("(" + xmlhttp.responseText + ")");
-    alert(xmlhttp.responseText);
     switch(loginResult.status)
     {
         case 0:
