@@ -23,12 +23,14 @@ function send()
 {
     var sMsg = validate();
     var sUrl;
+    var sParams;
     if (sMsg.length == 0)
     {
         document.getElementById("hPassword").value = hex_sha512(document.getElementById("txtPassword").value);
         //document.getElementById("frmLogin").submit();
-        sUrl = "loginProcess.php?txtEmail=" + document.getElementById("txtEmail").value + "hPassword=" + document.getElementById("hPassword").value;
-        getFromUrl(sUrl, processLoginResult);
+        sUrl = "loginProcess.php";
+        sParams = "txtEmail=" + document.getElementById("txtEmail").value + "hPassword=" + document.getElementById("hPassword").value;
+        getFromUrl(sUrl, sParams, processLoginResult);
     }
     else
     {
@@ -36,9 +38,13 @@ function send()
     }
 }
 
-function getFromUrl(sUrl, callbackfunction)
+function getFromUrl(sUrl, sParams, callbackfunction)
 {
     var xmlhttp = new XMLHttpRequest();
+    xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+    xmlhttp.setRequestHeader("Content-length", sParams.length);
+    xmlhttp.setRequestHeader("Connection", "close");
+
     xmlhttp.onreadystatechange = function ()
     {
         if (xmlhttp.readyState == 4 && xmlhttp.status == 200)
@@ -50,7 +56,7 @@ function getFromUrl(sUrl, callbackfunction)
         }
     };
     xmlhttp.open("POST", sUrl, true);
-    xmlhttp.send();
+    xmlhttp.send(sParams);
 }
 
 function processLoginResult(xmlhttp)
