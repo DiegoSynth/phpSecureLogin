@@ -15,7 +15,7 @@
 			}
 			else
 			{
-      			$query = "SELECT id, username, password FROM members WHERE email = ? LIMIT 1";
+      	$query = "SELECT id, username, password FROM members WHERE email = ? LIMIT 1";
 				$stmt = $mysqli->prepare($query);
 				$stmt->bind_param('s', $user->getEmail());
 				$stmt->execute();
@@ -25,7 +25,9 @@
 				
 				if ($stmt->num_rows == 1)
 				{
-					if($user->password == $db_password)
+					echo($user->password . " = " . $db_password . "</br >" . $db_userId);
+          die("blee");
+          if($user->password == $db_password)
 					{
 						$user->setUserId($db_userId);
 						$user->setUsername($db_username);

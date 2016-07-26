@@ -1,8 +1,6 @@
 <?php
   require_once 'LoginAdmin.php';
   require_once 'User.php';
-try
-{
 
 	$user = new User();
   /*
@@ -22,9 +20,4 @@ $user->setPassword("test123");
   /* Output header */
   header('Content-type: application/json');
   echo json_encode($messageResponse);
-}
-catch (Exception $e)
-{
-  echo($e->getMessage());
-}
 ?>
