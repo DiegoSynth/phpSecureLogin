@@ -3,14 +3,13 @@
 
   $goTo = $_POST["goTo"];
   $user = new User();
-
+die($_SESSION["email"]);
   if(session_status() != PHP_SESSION_ACTIVE)
   {
     $goTo = "error.html";
   }
   else
   {
-  die($_SESSION["email"]);
     $user = UserManager::getFromSession();
     if($user.getUserId == -1)
     {
