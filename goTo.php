@@ -18,4 +18,5 @@ die($_SESSION["email"]);
   }
   
   header("Location: " . $goTo);
+  exit();
 ?>

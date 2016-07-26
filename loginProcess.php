@@ -11,9 +11,11 @@
   {
     session_start();
     LoginAdmin::storeInSession($user);
+    session_write_close();
   }
   
   /* Output header */
   header('Content-type: application/json');
   echo json_encode($messageResponse);
+  exit();
 ?>
