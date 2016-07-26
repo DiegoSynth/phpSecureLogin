@@ -23,7 +23,7 @@
 				$stmt->bind_result($db_userId, $db_username, $db_password);
 				$stmt->fetch();
 		
-    echo($user->password . " = " . $db_password . "</br >" . $db_userId);
+    echo($user->getPassword() . " = " . $db_password . "</br >" . $db_userId);
     die("blee");		
 		
     if ($stmt->num_rows == 1)
