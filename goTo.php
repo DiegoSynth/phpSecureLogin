@@ -10,6 +10,7 @@
   }
   else
   {
+  die($_SESSION["email"]);
     $user = UserManager::getFromSession();
     if($user.getUserId == -1)
     {

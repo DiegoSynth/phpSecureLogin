@@ -11,7 +11,6 @@
   {
     session_start();
     LoginAdmin::storeInSession($user);
-    die($_SESSION["email"]);
   }
   
   /* Output header */
