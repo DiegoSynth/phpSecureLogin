@@ -3,7 +3,7 @@
   require_once 'User.php';
   require_once 'UserManager.php';
   
-  $goTo = $_POST["goTo"];
+  $goTo = $_POST["hGoTo"];
   $user = new User();
 
   if(session_status() != PHP_SESSION_ACTIVE)
