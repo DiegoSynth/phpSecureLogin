@@ -1,4 +1,5 @@
 <?php
+  session_start();
   require_once 'LoginAdmin.php';
   require_once 'User.php';
 
@@ -9,13 +10,12 @@
   $messageResponse = LoginAdmin::loginCheck($user);
   if($messageResponse["status"] == 0)
   {
-    session_start();
     LoginAdmin::storeInSession($user);
-    session_write_close();
   }
   
   /* Output header */
   header('Content-type: application/json');
   echo json_encode($messageResponse);
+  session_write_close();
   exit();
 ?>

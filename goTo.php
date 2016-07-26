@@ -1,11 +1,10 @@
 <?php
-  require_once 'User.php';
-
   session_start();
+  require_once 'User.php';
   
   $goTo = $_POST["goTo"];
   $user = new User();
-die($_SESSION["email"]);
+
   if(session_status() != PHP_SESSION_ACTIVE)
   {
     $goTo = "error.html";
