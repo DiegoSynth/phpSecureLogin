@@ -24,7 +24,7 @@
 				$stmt->fetch();
 		
     echo($user->getPassword() . " = " . $db_password . "</br >" . $db_userId);
-    die("blee");		
+    die("bleeeeeeee");		
 		
     if ($stmt->num_rows == 1)
 				{

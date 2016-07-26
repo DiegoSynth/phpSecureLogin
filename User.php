@@ -12,7 +12,7 @@
 		}
 		public function getEmail()
 		{
-			return($email);
+			return($this->email);
 		}
 
 		public function setUsername($username)
@@ -21,7 +21,7 @@
 		}
 		public function getUsername()
 		{
-			return($username);
+			return($this->username);
 		}
 
 		public function setUserId($userId)
@@ -30,7 +30,7 @@
 		}
 		public function getUserId()
 		{
-			return($userId);
+			return($this->userId);
 		}
 
 		public function setPassword($password)
@@ -39,7 +39,7 @@
 		}
 		public function getPassword()
 		{
-			return($password);
+			return($this->password);
 		}
 	}
 ?>
