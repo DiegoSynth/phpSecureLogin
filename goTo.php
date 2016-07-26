@@ -2,7 +2,7 @@
   $goTo = $_POST["goTo"];
   $user = new User();
 
-  if(session_status() != PHP_SESSION_ACTIVE))
+  if(session_status() != PHP_SESSION_ACTIVE)
   {
     $goTo = "error.php";
   }
