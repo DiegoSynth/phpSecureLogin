@@ -6,14 +6,14 @@
 
   if(session_status() != PHP_SESSION_ACTIVE)
   {
-    $goTo = "error.php";
+    $goTo = "error.html";
   }
   else
   {
     $user = UserManager::getFromSession();
     if($user.getUserId == -1)
     {
-	    $goTo = "error.php";
+	    $goTo = "error.html";
     }
   }
   
