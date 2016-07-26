@@ -28,7 +28,7 @@
 		
     if ($stmt->num_rows == 1)
 				{
-					if($user->password == $db_password)
+					if($user->getPassword() == $db_password)
 					{
 						$user->setUserId($db_userId);
 						$user->setUsername($db_username);
