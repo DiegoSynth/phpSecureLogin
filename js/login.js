@@ -45,7 +45,7 @@ function processLoginResult(xmlhttp)
     switch(loginResult.status)
     {
         case 0:
-            document.getElementById("divUserId").innerHTML = "welcome " + loginResult.userId;
+            document.getElementById("divUserId").innerHTML = "welcome " + loginResult.userId + " | entering now in the system...";
             document.getElementById("btnSend").disabled = true;
             window.setTimeout(enter, 2000);
             break;
