@@ -41,7 +41,7 @@ function send()
 
 function processLoginResult(xmlhttp)
 {
-    loginResult = eval("(" + xmlhttp.responseText + ")");
+    var loginResult = eval("(" + xmlhttp.responseText + ")");
     switch(loginResult.status)
     {
         case 0:
