@@ -41,5 +41,10 @@
 		{
 			return($this->password);
 		}
+    
+    public function toJson()
+    {
+      return(array("email" => $this->getEmail(), "userId"=> $this->getUserId(), "username" => $this->getUsername()));
+    }
 	}
 ?>

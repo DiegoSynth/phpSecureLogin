@@ -6,6 +6,7 @@
     <title>Log In</title>
     <link href="css/login.css" rel="stylesheet" type="text/css" />
     <script src="js/login.js" type="text/javascript"></script>
+    <script src="js/main.js" type="text/javascript"></script>
     <script src="js/sha512.js" type="text/javascript"></script>
 </head>
 <body>
@@ -13,7 +14,8 @@
 
     </div>
     <div class="divForm">
-        <form name="frmLogin" id="frmLogin" action="loginProcess.php" method="post">
+        <form name="frmLogin" id="frmLogin" action="goTo.php" method="post">
+            <input type="hidden" name="hGoTo" id="hGoTo" value="home.html" />
             <input type="hidden" name="hPassword" id="hPassword" />
             <table>
                 <tr>

@@ -42,5 +42,18 @@
 			}
 			return($user);
 		}
+    
+    public static function getFromSession()
+    {
+      $user = new User();
+      $user->setUserId(-1);
+      
+      if((session_status() == PHP_SESSION_ACTIVE) && (isset($_SESSION["userId"]))
+      {
+        $user->setEmail($_SESSION["email"]);
+        $user->setUserId($_SESSION["userId"]);
+      }
+      return($user);
+    }
 	}
 ?>
