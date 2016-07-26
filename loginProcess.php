@@ -7,6 +7,7 @@
   $user->setPassword($_POST['hPassword']);
   
   $messageResponse = LoginAdmin::loginCheck($user);
+  die($messageResponse["status"]);
   if($messageResponse["status"] == 0)
   {
     session_start();
