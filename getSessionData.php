@@ -7,7 +7,7 @@
 
 	if(session_status() == PHP_SESSION_ACTIVE)
 	{
-		$user = UserManager::getFromSession()
+		$user = UserManager::getFromSession();
 	}
 	else
 	{
