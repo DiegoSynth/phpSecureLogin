@@ -39,24 +39,6 @@ function send()
     }
 }
 
-function getFromUrl(sUrl, sParams, callbackfunction)
-{
-    var xmlhttp = new XMLHttpRequest();
-    xmlhttp.onreadystatechange = function ()
-    {
-        if (xmlhttp.readyState == 4 && xmlhttp.status == 200)
-        {
-            if (callbackfunction)
-            {
-                callbackfunction(xmlhttp);
-            }
-        }
-    };
-    xmlhttp.open("POST", sUrl, true);
-    xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-    xmlhttp.send(sParams);
-}
-
 function processLoginResult(xmlhttp)
 {
     loginResult = eval("(" + xmlhttp.responseText + ")");
@@ -65,9 +47,15 @@ function processLoginResult(xmlhttp)
         case 0:
             document.getElementById("divUserId").innerHTML = "welcome " + loginResult.userId;
             document.getElementById("btnSend").disabled = true;
+            window.setTimeout(enter, 2000);
             break;
         default:
             alert(loginResult.msg);
             break;
     }
+}
+
+function enter()
+{
+    document.getElementById("frmLogin").submit();
 }
