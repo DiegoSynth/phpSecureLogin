@@ -1,4 +1,5 @@
 <?php
+	session_start();
 	require_once 'User.php';
 	require_once 'UserManager.php';
 
@@ -16,4 +17,5 @@
 	/* Output header */
 	header('Content-type: application/json');
 	echo json_encode($user->toJson());
+	exit();
 ?>
