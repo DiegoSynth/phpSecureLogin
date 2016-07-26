@@ -2,8 +2,12 @@
   require_once 'LoginAdmin.php';
 
 	$user = new User();
+  /*
   $user->setEmail($_POST['txtEmail']);
   $user->setPassword($_POST['hPassword']);
+  */
+$user->setEmail("test@example.com");
+$user->setPassword("test123");
 
   $messageResponse = LoginAdmin::loginCheck($user);
   if($messageResponse["status"] == 0)
