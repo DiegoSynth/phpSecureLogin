@@ -23,7 +23,6 @@ function getSessionData()
 
 function validateSession(xmlhttp)
 {
-    alert(xmlhttp.responseText);
     var userLogged = eval("(" + xmlhttp.responseText + ")");
     if(userLogged.userId == -1)
     {
