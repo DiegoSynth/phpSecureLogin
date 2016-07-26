@@ -22,12 +22,13 @@
 				$stmt->store_result();
 				$stmt->bind_result($db_userId, $db_username, $db_password);
 				$stmt->fetch();
-				
-				if ($stmt->num_rows == 1)
+		
+    echo($user->password . " = " . $db_password . "</br >" . $db_userId);
+    die("blee");		
+		
+    if ($stmt->num_rows == 1)
 				{
-					echo($user->password . " = " . $db_password . "</br >" . $db_userId);
-          die("blee");
-          if($user->password == $db_password)
+					if($user->password == $db_password)
 					{
 						$user->setUserId($db_userId);
 						$user->setUsername($db_username);
