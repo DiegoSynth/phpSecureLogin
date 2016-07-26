@@ -39,6 +39,7 @@
     public static function storeInSession($user)
     {
       $_SESSION["userId"] = $user->getUserId();
+      $_SESSION["username"] = $user->getUsername();
       $_SESSION["email"] = $user->getEmail();
     }
 	}
