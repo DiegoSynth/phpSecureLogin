@@ -10,19 +10,19 @@
 		  $result = "";
       $dbUser = UserManager::getUser($user);
       
-      if($dbUser->getUserId == -1)
+      if($dbUser->getUserId() == -1)
       {
         $result =  array("status" => -4, "msg" => "Database connection error!");
       }
       else
       {
-			  if($dbUser->getUserId == -2)
+			  if($dbUser->getUserId() == -2)
         {
           $result = array("status" => -5, "msg" => "User does not exists!");  
         }
         else
         {
-          if($dbUser->getUserId == -3)
+          if($dbUser->getUserId() == -3)
           {
             $result = array("status" => -6, "msg" => "Wrong password for the specified user!");
           }
