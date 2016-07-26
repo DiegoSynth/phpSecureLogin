@@ -9,9 +9,9 @@
   $messageResponse = LoginAdmin::loginCheck($user);
   if($messageResponse["status"] == 0)
   {
-    die("aaa");
     session_start();
     LoginAdmin::storeInSession($user);
+    die($_SESSION["email"]);
   }
   
   /* Output header */
