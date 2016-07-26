@@ -7,9 +7,9 @@
   $user->setPassword($_POST['hPassword']);
   
   $messageResponse = LoginAdmin::loginCheck($user);
-  die($messageResponse["status"]);
   if($messageResponse["status"] == 0)
   {
+    die("aaa");
     session_start();
     LoginAdmin::storeInSession($user);
   }
