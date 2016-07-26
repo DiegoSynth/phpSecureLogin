@@ -23,10 +23,7 @@
 				$stmt->bind_result($db_userId, $db_username, $db_password);
 				$stmt->fetch();
 		
-    echo($user->getPassword() . " = " . $db_password . "</br >" . $db_userId);
-    die("bleeeeeeee");		
-		
-    if ($stmt->num_rows == 1)
+        if ($stmt->num_rows == 1)
 				{
 					if($user->getPassword() == $db_password)
 					{
@@ -44,11 +41,6 @@
 				}
 			}
 			return($user);
-		}
-    
-		public function storeInSession($user)
-		{
-    
 		}
 	}
 ?>
