@@ -1,6 +1,8 @@
 <?php
   require_once 'User.php';
 
+  session_start();
+  
   $goTo = $_POST["goTo"];
   $user = new User();
 die($_SESSION["email"]);
