@@ -13,7 +13,7 @@
   else
   {
     $user = UserManager::getFromSession();
-    if($user.getUserId == -1)
+    if($user.getUserId() == -1)
     {
 	    $goTo = "error.html";
     }
