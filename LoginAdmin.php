@@ -1,4 +1,6 @@
 <?php
+  require_once 'UserManager.php';
+  require_once 'User.php';
   
   class LoginAdmin
 	{

@@ -1,5 +1,6 @@
 <?php
   require_once 'LoginAdmin.php';
+  require_once 'User.php';
 
 	$user = new User();
   /*
