@@ -1,4 +1,6 @@
 <?php
+  require_once 'User.php';
+
   $goTo = $_POST["goTo"];
   $user = new User();
 
